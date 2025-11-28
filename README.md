@@ -1,97 +1,293 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Mini E-commerce App 🛍️
 
-# Getting Started
+A modern, feature-rich mobile e-commerce application built with React Native, TypeScript, and Redux Toolkit. This app provides a seamless shopping experience with product browsing, search, cart management, and persistent state.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
 
-## Step 1: Start Metro
+### 🛒 Core Functionality
+- **Product Listing**: Browse products with pagination (5 items per page)
+- **Product Search**: Real-time search functionality to find products quickly
+- **Product Details**: View detailed information about each product
+- **Shopping Cart**: Add, remove, and manage product quantities
+- **Cart Persistence**: Cart state persists across app restarts using AsyncStorage
+- **Pull-to-Refresh**: Refresh product listings with a simple pull gesture
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🎨 UI/UX
+- **Modern Design**: Clean, professional interface with a vibrant color scheme
+- **Shimmer Loading**: Elegant loading states with shimmer effects
+- **Responsive Layout**: Optimized for various screen sizes
+- **Bottom Tab Navigation**: Easy navigation between Products and Cart
+- **Fixed Cart Summary**: Total price and checkout button fixed at bottom for easy access
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🔧 Technical Features
+- **TypeScript**: Full type safety throughout the application
+- **Redux Toolkit**: Efficient state management with Redux
+- **Redux Persist**: Automatic state persistence
+- **Axios**: HTTP client for API requests
+- **React Navigation**: Smooth navigation experience
+- **Safe Area Support**: Proper handling of device safe areas
 
-```sh
-# Using npm
+## 📱 Screenshots
+
+The app features:
+- Product listing with search bar
+- Paginated product cards with images, titles, prices, and ratings
+- Detailed product view
+- Shopping cart with quantity controls
+- Fixed bottom checkout section
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/set-up-your-environment) guide.
+
+**Required:**
+- Node.js >= 20
+- npm or Yarn
+- Xcode (for iOS development)
+- Android Studio (for Android development)
+- CocoaPods (for iOS dependencies)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd miniEcommApp
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install iOS dependencies** (iOS only)
+   
+   First time setup:
+   ```bash
+   bundle install
+   ```
+   
+   Install CocoaPods dependencies:
+   ```bash
+   cd ios
+   bundle exec pod install
+   cd ..
+   ```
+
+### Running the App
+
+#### Start Metro Bundler
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+#### Run on Android
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+#### Run on iOS
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Development Commands
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- **Lint code**: `npm run lint`
+- **Run tests**: `npm run test`
+- **Start Metro**: `npm start`
 
-## Step 3: Modify your app
+## 🏗️ Project Structure
 
-Now that you have successfully run the app, let's make changes!
+```
+miniEcommApp/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── CartItem.tsx     # Cart item component
+│   │   ├── ProductCard.tsx  # Product card component
+│   │   ├── SearchBar.tsx    # Search input component
+│   │   └── ShimmerCard.tsx  # Loading skeleton component
+│   ├── navigation/          # Navigation configuration
+│   │   └── AppNavigator.tsx # Bottom tab navigator
+│   ├── screens/             # Screen components
+│   │   ├── CartScreen.tsx   # Shopping cart screen
+│   │   ├── ProductDetailsScreen.tsx  # Product details screen
+│   │   └── ProductListScreen.tsx     # Product listing screen
+│   ├── services/            # API and network services
+│   │   ├── api.ts           # API endpoints
+│   │   └── axiosInstance.ts # Axios configuration
+│   ├── store/               # Redux store configuration
+│   │   ├── slices/
+│   │   │   ├── cartSlice.ts     # Cart state management
+│   │   │   └── productsSlice.ts # Products state management
+│   │   └── store.ts         # Redux store setup
+│   ├── theme/               # Theme configuration
+│   │   ├── colors.ts        # Color palette
+│   │   └── spacing.ts       # Spacing and typography
+│   └── types/               # TypeScript type definitions
+│       └── types.ts         # App-wide types
+├── App.tsx                  # Root component
+└── package.json             # Dependencies and scripts
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 🛠️ Tech Stack
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Core
+- **React Native** (0.82.1) - Mobile app framework
+- **TypeScript** (5.8.3) - Type safety
+- **React** (19.1.1) - UI library
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### State Management
+- **Redux Toolkit** (2.11.0) - State management
+- **React Redux** (9.2.0) - React bindings for Redux
+- **Redux Persist** (6.0.0) - State persistence
 
-## Congratulations! :tada:
+### Navigation
+- **React Navigation** (7.x) - Navigation library
+- **Bottom Tabs Navigator** - Tab-based navigation
+- **Native Stack Navigator** - Stack-based navigation
 
-You've successfully run and modified your React Native App. :partying_face:
+### UI Components
+- **React Native Vector Icons** (10.3.0) - Icon library
+- **React Native Linear Gradient** (2.8.3) - Gradient effects
+- **React Native Shimmer Placeholder** (2.0.9) - Loading skeletons
 
-### Now what?
+### Networking
+- **Axios** (1.13.2) - HTTP client
+- **FakeStore API** - Product data source
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### Storage
+- **AsyncStorage** (2.2.0) - Local data persistence
 
-# Troubleshooting
+## 📦 Key Dependencies
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```json
+{
+  "@reduxjs/toolkit": "^2.11.0",
+  "@react-navigation/bottom-tabs": "^7.8.7",
+  "@react-navigation/native-stack": "^7.8.1",
+  "axios": "^1.13.2",
+  "react-native-vector-icons": "^10.3.0",
+  "redux-persist": "^6.0.0"
+}
+```
 
-# Learn More
+## 🎯 Features in Detail
 
-To learn more about React Native, take a look at the following resources:
+### Product Listing
+- Displays products in a scrollable list
+- Shows product image, title, price, and rating
+- Implements pagination (5 items per page)
+- Automatic loading of more items on scroll
+- Pull-to-refresh functionality
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Search
+- Real-time search filtering
+- Case-insensitive search
+- Searches product titles
+- Resets pagination on search
+
+### Shopping Cart
+- Add products to cart
+- Increment/decrement quantities
+- Remove items from cart
+- Real-time total calculation
+- Persistent cart state (survives app restarts)
+- Fixed bottom section with total and checkout button
+
+### Product Details
+- Full product information
+- Product image
+- Title, description, price
+- Category and rating
+- Add to cart functionality
+
+## 🔄 State Management
+
+The app uses Redux Toolkit for state management with two main slices:
+
+### Products Slice
+- Manages product list
+- Handles loading states
+- Manages search query
+- Error handling
+
+### Cart Slice
+- Manages cart items
+- Calculates totals
+- Handles quantity updates
+- Persisted using Redux Persist
+
+## 🌐 API Integration
+
+The app integrates with the [FakeStore API](https://fakestoreapi.com/) for product data:
+- **Endpoint**: `https://fakestoreapi.com/products`
+- **Method**: GET
+- **Response**: Array of product objects
+
+## 🎨 Theming
+
+The app uses a consistent color scheme defined in `src/theme/colors.ts`:
+- **Primary**: Indigo (#6366F1)
+- **Background**: Light gray (#F5F5F5)
+- **Card**: White (#FFFFFF)
+- **Text**: Dark gray (#1F2937)
+
+## 🧪 Testing
+
+Run tests with:
+```bash
+npm test
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Metro bundler issues:**
+```bash
+npm start -- --reset-cache
+```
+
+**iOS build issues:**
+```bash
+cd ios
+bundle exec pod install
+cd ..
+npm run ios
+```
+
+**Android build issues:**
+```bash
+cd android
+./gradlew clean
+cd ..
+npm run android
+```
+
+For more help, see the [React Native Troubleshooting Guide](https://reactnative.dev/docs/troubleshooting).
+
+## 📚 Learn More
+
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
+- [React Navigation Documentation](https://reactnavigation.org/docs/getting-started)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+Built with ❤️ using React Native and TypeScript
+
+---
+
+**Happy Shopping! 🛍️**
