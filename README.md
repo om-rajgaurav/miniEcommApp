@@ -2,6 +2,10 @@
 
 A modern, feature-rich mobile e-commerce application built with React Native, TypeScript, and Redux Toolkit. This app provides a seamless shopping experience with product browsing, search, cart management, and persistent state.
 
+## ✨ Demo
+
+https://github.com/user-attachments/assets/12b14786-cba2-46d0-bbb9-1c9d9e1a319d
+
 ## ✨ Features
 
 ### 🛒 Core Functionality
